@@ -9,6 +9,9 @@
 //                                                                  //
 //              connect the bridge between X and a axis to          //
 //              mirror the x to the a axis                          //
+//              x and a axis are set tho half step (camera height)  //
+//              y is set to 1/16 step              (camera tilt)    //
+//              z is set to 1/16 step              (turntable)      //
 //                                                                  //
 //              more infos: https://github.com/ronbal/3dScanner     //
 //              contact: ronny@ronbal.de                            //
