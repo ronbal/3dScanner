@@ -18,32 +18,32 @@
 //                                                                  //
 //////////////////////////////////////////////////////////////////////
 
-#include <AccelStepper.h>   //includes the Accelstepper Library
+#include <AccelStepper.h>   //includes the Accelstepper Library / fügt die library ein
 
-#define motor_enable_pin 8  // total Enable pin on CNC Shield
+#define motor_enable_pin 8  // total Enable pin on CNC Shield / aktiviert die Motor Treiber vom shield
     
-// Define a stepper and the pins it will use
-AccelStepper stepper(AccelStepper::DRIVER, 2, 5); // Stepper one an two connected to X and A axis for the high
-AccelStepper camera(AccelStepper::DRIVER, 3, 6); // Stepper three for Camera tilt connected to y axis
-AccelStepper table(AccelStepper::DRIVER, 4, 7); // Stepper four turntable connectedt to Z axis
+// Define a stepper and the pins it will use / die pins für die Motoren definieren
+AccelStepper stepper(AccelStepper::DRIVER, 2, 5); // Stepper one an two connected to X and A axis for the high / der erste  und zweite Motor werden an die x und a Achse des Shields angeschlossen
+AccelStepper camera(AccelStepper::DRIVER, 3, 6); // Stepper three for Camera tilt connected to y axis / der dritte Motor ist für den Kamerawinkel
+AccelStepper table(AccelStepper::DRIVER, 4, 7); // Stepper four turntable connectedt to Z axis / Motor 4 ist für den Drehteller
 
 
 void setup()
 {  
 
 
-   pinMode(motor_enable_pin    , OUTPUT);             //sets the enable pin to output
-   digitalWrite(motor_enable_pin    , LOW);           // set the motors senabled
+   pinMode(motor_enable_pin    , OUTPUT);             //sets the enable pin to output / den enable pin als Ausgang deklarieren
+   digitalWrite(motor_enable_pin    , LOW);           // set the motors senabled / die enable bin auf low setzen damit sind die Motoren aktiv 
   
 
-  stepper.setMaxSpeed(1000);                          //set Motorspeed for x axis to 1000 Steps per second
-  stepper.setAcceleration(100);                       // sets the desired acceleration in steps per second per second
+  stepper.setMaxSpeed(1000);                          //set Motorspeed for x axis to 1000 Steps per second / maximaLe motorgemotor Geschwindigkeit auf 1000 Steps pro Sekunde setzen für die x und a achse
+  stepper.setAcceleration(100);                       // sets the desired acceleration in steps per second per second / Beschleunigung für die X / A Achse auf 100 Steps pro Sekunde setzen
   
-   table.setMaxSpeed(20000);                          // turntable max Speed
-  table.setAcceleration(1000);                        // turntable acceleration
+   table.setMaxSpeed(20000);                          // turntable max Speed / Dreheller max speed
+  table.setAcceleration(1000);                        // turntable acceleration / Drehteile beschleunigung
  
-   camera.setMaxSpeed(1000);                          // camera tilt max speed
-  camera.setAcceleration(1000);                       // camera tilt acceleration
+   camera.setMaxSpeed(1000);                          // camera tilt max speed / Kamerawinkel Geschwindigkeit 
+  camera.setAcceleration(1000);                       // camera tilt acceleration / Kamerawinkel beschleunigung
   
   camera.moveTo(700);                                 // move the camera tilt 700 steps forwardto position 700 thats is on my setup 0 degree
  cameraangle();                                       // calls the subroutine to perform the movement
